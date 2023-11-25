@@ -1,8 +1,8 @@
-# import newrelic.agent
+import newrelic.agent
 import math
 # import logging
 
-# newrelic.agent.initialize('newrelic.ini') #This is required! [RLF]
+newrelic.agent.initialize('newrelic.ini') #This is required! [RLF]
 
 from classes import *
 from functional import *
@@ -11,7 +11,7 @@ from functional import *
 Interpic
 '''
 
-# @newrelic.agent.background_task()
+@newrelic.agent.background_task()
 def showTitleScreen(screen, tileset, ui_tiles):
     clock = pygame.time.Clock()
     
@@ -61,7 +61,7 @@ def showTitleScreen(screen, tileset, ui_tiles):
         
     return False
 
-# @newrelic.agent.background_task()
+@newrelic.agent.background_task()
 def showInterpic(completed_levels, screen, GamePlayer, tileset, ui_tileset):
     clock = pygame.time.Clock()
     
@@ -116,7 +116,7 @@ def showInterpic(completed_levels, screen, GamePlayer, tileset, ui_tileset):
         
     return False
 
-# @newrelic.agent.background_task()
+@newrelic.agent.background_task()
 def showWarpZone(completed_levels, screen, GamePlayer, tileset, ui_tileset):
     clock = pygame.time.Clock()
     
@@ -157,7 +157,7 @@ def showWarpZone(completed_levels, screen, GamePlayer, tileset, ui_tileset):
     return False
     
     
-# @newrelic.agent.background_task()
+@newrelic.agent.background_task()
 def getBonusMapping(current_level):
     if current_level == 2: return 6
     elif current_level == 5: return 2
@@ -169,15 +169,15 @@ def getBonusMapping(current_level):
     elif current_level == 1: return 11
     else: return 1
     
-# @newrelic.agent.background_task()
+@newrelic.agent.background_task()
 def showScores(screen, tileset):
     pass
     
-# @newrelic.agent.background_task()
+@newrelic.agent.background_task()
 def savePlayerScore(player_score, screen, tileset):
     pass
         
-# @newrelic.agent.background_task()
+@newrelic.agent.background_task()
 def showCreditsScreen(screen, tileset):
     pass
    
@@ -441,9 +441,9 @@ def main():
     pygame.quit()
     quit()
 
-# application = newrelic.agent.register_application(timeout=5) # force New Relic agent registration [RLF]
+application = newrelic.agent.register_application(timeout=5) # force New Relic agent registration [RLF]
 
 if __name__ == "__main__":
     main()
 
-# newrelic.agent.shutdown_agent(timeout=2.5) # shutdown New Relic agent [RLF]
+newrelic.agent.shutdown_agent(timeout=2.5) # shutdown New Relic agent [RLF]
