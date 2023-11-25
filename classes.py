@@ -1500,13 +1500,11 @@ class Player(Dynamic):
                 attributes={'transactionUiName': 'collectItem'},
                 application=newrelic.agent.application())
 
-        '''
         event_type = "CollectedItem"
         params = {'item.id': item.getId(), 'item.score': item.getScore(), 'item.type': item.getType(),
                   'item.isEquipment': itemIsEquipment, 'levelNumber': self.currentLevelNumber, 'item.gfx_id': self.gfx_id}
         newrelic.agent.record_custom_event(
             event_type, params, application=newrelic.agent.application())
-    	'''
 
         # if the player got to a certain score, give one life to him
         if self.score % 5000 == 0:
