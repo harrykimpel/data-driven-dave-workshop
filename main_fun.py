@@ -1,6 +1,6 @@
 import newrelic.agent
 import math
-# import logging
+import logging
 
 newrelic.agent.initialize('newrelic.ini') #This is required! [RLF]
 
@@ -189,6 +189,7 @@ Game processing stuff
 Main
 '''
 
+@newrelic.agent.background_task()
 def main():
     ##Init pygame
     pygame.init()
@@ -198,14 +199,14 @@ def main():
     tileset, ui_tileset = load_all_tiles()
     game_open = True
     
-    ##Logging test [RLF]
-    # logging.basicConfig(level=logging.INFO)
-    # logging.info('This is a sample info message')
-    # logging.warning('This is a sample warning message')
-    # logging.error('This is a sample error message')
+    #Logging test [RLF]
+    logging.basicConfig(level=logging.INFO)
+    logging.info('This is a sample info message')
+    logging.warning('This is a sample warning message')
+    logging.error('This is a sample error message')
 
-    ##Game start log message [RLF]
-    # logging.info('Game started')
+    #Game start log message [RLF]
+    logging.info('Game started')
 
     while game_open:
         ##Show title screen
@@ -273,7 +274,7 @@ def main():
                             ended_game = True
 
                             # Write game stats to log [RLF]
-                            # logging.info('Game ended with score %s', GamePlayer.score)
+                            logging.info('Game ended with score %s', GamePlayer.score)
 
                             # Record custom New Relic event [RLF]
                             # event_type = "GameComplete" 
@@ -333,7 +334,7 @@ def main():
                             ended_game = True
 
                             # Write game stats to log [RLF]
-                            # logging.info('Game ended with score %s', GamePlayer.score)
+                            logging.info('Game ended with score %s', GamePlayer.score)
 
                             # Record custom New Relic event [RLF]
                             # event_type = "GameComplete" 
@@ -418,7 +419,7 @@ def main():
                 ended_game = True
 
                 # Write game stats to log [RLF]
-                # logging.info('Game ended with score %s', GamePlayer.score)
+                logging.info('Game ended with score %s', GamePlayer.score)
 
                 # Record custom New Relic event [RLF]
                 # event_type = "GameComplete" 

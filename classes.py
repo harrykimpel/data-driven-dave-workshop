@@ -1493,12 +1493,12 @@ class Player(Dynamic):
         except ZeroDivisionError as err:
             error_occurred = True
             # log the error
-            #logging.error('An exception occurred: '+str(err))
+            logging.error('An exception occurred: '+str(err))
             
             # record the error in APM
-            #newrelic.agent.notice_error(
-            #    attributes={'transactionUiName': 'collectItem'},
-            #    application=newrelic.agent.application())
+            newrelic.agent.notice_error(
+                attributes={'transactionUiName': 'collectItem'},
+                application=newrelic.agent.application())
 
         '''
         event_type = "CollectedItem"
