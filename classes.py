@@ -152,6 +152,7 @@ class Screen(object):
 
     @newrelic.agent.background_task()
     def printPlayer(self, player, player_x, player_y, tileset):
+
         player_graphic = player.getGraphic(tileset)
         player.copyDirectionToSprite()
 
