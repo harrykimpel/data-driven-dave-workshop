@@ -2,7 +2,7 @@ import newrelic.agent
 import math
 import logging
 
-newrelic.agent.initialize('newrelic.ini') #This is required!
+newrelic.agent.initialize('newrelic.ini') # This is required!
 
 from classes import *
 from functional import *
