@@ -2,7 +2,7 @@ import newrelic.agent
 import math
 import logging
 
-newrelic.agent.initialize('newrelic.ini') #This is required! [RLF]
+newrelic.agent.initialize('newrelic.ini') #This is required!
 
 from classes import *
 from functional import *
@@ -199,13 +199,13 @@ def main():
     tileset, ui_tileset = load_all_tiles()
     game_open = True
     
-    #Logging test [RLF]
+    #Logging test
     logging.basicConfig(level=logging.INFO)
     logging.info('This is a sample info message')
     logging.warning('This is a sample warning message')
     logging.error('This is a sample error message')
 
-    #Game start log message [RLF]
+    #Game start log message
     logging.info('Game started')
 
     while game_open:
@@ -273,10 +273,10 @@ def main():
                             ended_level = True
                             ended_game = True
 
-                            # Write game stats to log [RLF]
+                            # Write game stats to log
                             logging.info('Game ended with score %s', GamePlayer.score)
 
-                            # Record custom New Relic event [RLF]
+                            # Record custom New Relic event
                             event_type = "GameComplete" 
                             params = {'current_level': current_level_number, 'player_score': GamePlayer.score} 
                             newrelic.agent.record_custom_event(event_type, params, application=application)
@@ -333,10 +333,10 @@ def main():
                             ended_level = True
                             ended_game = True
 
-                            # Write game stats to log [RLF]
+                            # Write game stats to log
                             logging.info('Game ended with score %s', GamePlayer.score)
 
-                            # Record custom New Relic event [RLF]
+                            # Record custom New Relic event
                             event_type = "GameComplete" 
                             params = {'current_level': current_level_number, 'player_score': GamePlayer.score} 
                             newrelic.agent.record_custom_event(event_type, params, application=application)
@@ -396,7 +396,7 @@ def main():
                 pygame.event.pump() 
                 clock.tick(200)
 
-            # Record custom New Relic event [RLF]
+            # Record custom New Relic event
             event_type = "LevelUp" 
             params = {'current_level': current_level_number, 'player_score': GamePlayer.score} 
             newrelic.agent.record_custom_event(event_type, params, application=application)
@@ -418,10 +418,10 @@ def main():
                 showCreditsScreen(game_screen, tileset)
                 ended_game = True
 
-                # Write game stats to log [RLF]
+                # Write game stats to log
                 logging.info('Game ended with score %s', GamePlayer.score)
 
-                # Record custom New Relic event [RLF]
+                # Record custom New Relic event
                 event_type = "GameComplete" 
                 current_level_number -= 1
                 params = {'current_level': current_level_number, 'player_score': GamePlayer.score} 
@@ -442,9 +442,9 @@ def main():
     pygame.quit()
     quit()
 
-application = newrelic.agent.register_application(timeout=5) # force New Relic agent registration [RLF]
+application = newrelic.agent.register_application(timeout=5) # force New Relic agent registration
 
 if __name__ == "__main__":
     main()
 
-newrelic.agent.shutdown_agent(timeout=2.5) # shutdown New Relic agent [RLF]
+newrelic.agent.shutdown_agent(timeout=2.5) # shutdown New Relic agent
