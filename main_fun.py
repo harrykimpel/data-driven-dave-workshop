@@ -1,6 +1,8 @@
 import newrelic.agent
 import math
 import logging
+import langchain
+import nltk
 
 newrelic.agent.initialize('newrelic.ini') # This is required!
 
