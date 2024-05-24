@@ -1,9 +1,13 @@
 # Virtual Environment
 dd_venv/
 env/
+.venv/
 
 # OS generated files
 .idea/
 *.pyc
 .DS_Store
 .gitignore
+
+
+__pycache__/
