@@ -25,8 +25,13 @@ We hope you enjoy!
   - pygame
   - newrelic
 
-  Run this command to install all the required packages:  
-    `pip3 install -r requirements.txt`
+  Run these commands to install all the required packages in a virtual environment:
+
+    ```shell
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip3 install -r requirements.txt
+    ```
 
 - You'll need a New Relic account. The good news is that you can create a [free account here](https://newrelic.com/signup) (no credit card required).
 - New Relic instrumentation
